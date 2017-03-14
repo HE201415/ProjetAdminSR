@@ -5,3 +5,9 @@ write "FROM docker/container"
 URL source : dockers.com/engine/getstarted/step_four/
 
 Utiliser docker-nginx
+
+Emplacement des pages webs : docker/nginx/html/
+
+woodytoys.html		wt18.ephec-ti.be
+woodytoys2.html		b2b.ephec-ti.be
+...
