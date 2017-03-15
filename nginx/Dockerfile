@@ -2,6 +2,7 @@ FROM dockerfile/ubuntu
 
 MAINTAINER
 
+# Install(?) Nginx.
 RUN
 
 # Define mountable directories.
