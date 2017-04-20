@@ -1,4 +1,4 @@
-NameVirtualHost "adresse IP:80"
+NameVirtualHost *:80
 <VirtualHost *:80>
       ServerAdmin he201415@students.ephec.be
       ServerName b2b.wt18.ephec-ti.be
