@@ -1,3 +1,4 @@
+NameVirtualHost *:80
 <VirtualHost *:80>
       ServerAdmin he201415@students.ephec.be
       ServerName intranet.wt18.ephec-ti.be
