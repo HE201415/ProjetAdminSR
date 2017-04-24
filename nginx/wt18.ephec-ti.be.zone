@@ -1,15 +1,16 @@
 $TTL 86400
+
 @   IN  SOA     ns1.wt18.ephec-ti.be sysadmin.wt18.ephec-ti.be (
         2013042201  ;Serial
         3600        ;Refresh
         1800        ;Retry
         604800      ;Expire
-        86400       ;Minimum TTL
+        60          ;Minimum TTL
 )
-; Specify our two nameservers
-		IN	NS		ns1.wt18.ephec-ti.be.
-		IN	NS		ns2.wt18.ephec-ti.be.
-; Resolve nameserver hostnames to IP, replace with your two droplet IP addresses.
+; Specification de nos deux serveurs de nom
+@		IN	NS		ns1.wt18.ephec-ti.be.
+@		IN	NS		ns2.wt18.ephec-ti.be.
+; Resolution des hostnames de serveurs de nom  vers l' IP, avec les deux droplet adresses IP droplet.
 ns1		IN	A		79.137.39.3
 ns2		IN	A		79.137.39.3
 
