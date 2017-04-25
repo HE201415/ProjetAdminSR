@@ -24,7 +24,7 @@ vi /etc/apache2/sites-available/wt18.ephec-ti.be.conf
       ServerAdmin he201415@students.ephec.be
       ServerName wt18.ephec-ti.be
       ServerAlias www.wt18.ephec-ti.be
-      DocumentRoot /var/www/wt18.ephec-ti.be/
+      DocumentRoot /var/www/wt18.ephec-ti.be
       <Directory /var/www/wt18.ephec-ti.be/>
               Options Indexes FollowSymLinks MultiViews
               AllowOverride None
