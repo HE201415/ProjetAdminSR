@@ -19,9 +19,10 @@ vi /var/www/wt18.ephec-ti.be/index.html
 </html>
 
 //https://github.com/HE201415/ProjetAdminSR/blob/master/apache/sites-available/www.wt18.ephec-ti.be
+//cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/wt18.ephec-ti.be.conf
 vi /etc/apache2/sites-available/wt18.ephec-ti.be.conf
 <VirtualHost *:80>
-      ServerAdmin he201415@students.ephec.be
+      ServerAdmin admin@wt18.ephec-ti.be
       ServerName wt18.ephec-ti.be
       ServerAlias www.wt18.ephec-ti.be
       DocumentRoot /var/www/wt18.ephec-ti.be
@@ -35,3 +36,15 @@ vi /etc/apache2/sites-available/wt18.ephec-ti.be.conf
 
 a2ensite wt18.ephec-ti.be.conf
 service apache2 restart
+
+// test ne marche pas
+
+apt-get install bind9
+
+
+vi /etc/bind/named.conf.local
+zone "wt18.ephec-ti.be" IN {
+                type master; //nom de domaine principal
+                file "wt18.ephec-ti.be.zone"; //chemin
+                allow-update { none; };
+        };
