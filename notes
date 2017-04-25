@@ -1,0 +1,37 @@
+//Links
+//https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts
+
+
+apt-get install apache2
+
+mkdir /var/www/wt18.ephec-ti.be
+chmod -R 755 /var/www
+
+//https://github.com/HE201415/ProjetAdminSR/blob/master/html/www.wt18.ephec-ti.be
+vi /var/www/wt18.ephec-ti.be/index.html
+<html>
+  <head>
+    <title>Test!</title>
+  </head>
+  <body>
+   <h1>Test working</h1>
+  </body>
+</html>
+
+//https://github.com/HE201415/ProjetAdminSR/blob/master/apache/sites-available/www.wt18.ephec-ti.be
+vi /etc/apache2/sites-available/wt18.ephec-ti.be.conf
+<VirtualHost *:80>
+      ServerAdmin he201415@students.ephec.be
+      ServerName wt18.ephec-ti.be
+      ServerAlias www.wt18.ephec-ti.be
+      DocumentRoot /var/www/wt18.ephec-ti.be/
+      <Directory /var/www/wt18.ephec-ti.be/>
+              Options Indexes FollowSymLinks MultiViews
+              AllowOverride None
+              Order allow,deny
+              allow from all
+      </Directory>
+</VirtualHost>
+
+a2ensite wt18.ephec-ti.be.conf
+service apache2 restart
