@@ -1,14 +1,20 @@
-//Links
+//Links apache
 //https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts
-
+//Links DNS
+//https://www.digitalocean.com/community/tutorials/how-to-configure-the-apache-web-server-on-an-ubuntu-or-debian-vps
+//https://doc.ubuntu-fr.org/bind9
+//http://wiki.goldzoneweb.info/creation_d_une_zone
+//http://valaurea.free.fr/documents/sig11_bind9_3.html
 
 apt-get install apache2
 
-mkdir /var/www/wt18.ephec-ti.be
+mkdir /var/www/wt18
+mkdir /var/www/intranet
+mkdir /var/www/b2b
 chmod -R 755 /var/www
 
 //https://github.com/HE201415/ProjetAdminSR/blob/master/html/www.wt18.ephec-ti.be
-vi /var/www/index.html
+vi /var/www/wt18/index.html
 <html>
   <head>
     <title>Test!</title>
@@ -22,22 +28,37 @@ vi /var/www/index.html
 //cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/wt18.ephec-ti.be.conf
 vi /etc/apache2/sites-available/wt18.ephec-ti.be.conf
 <VirtualHost *:80>
-      ServerAdmin admin@wt18.ephec-ti.be
+      ServerAdmin HE201415@students.ephec.be
       ServerName www.wt18.ephec-ti.be
-      //ServerAlias www.wt18.ephec-ti.be
-      DocumentRoot /var/www
-      <Directory /var/www/>
+      DocumentRoot /var/www/wt18
+      <Directory /var/www/wt18/>
               Options Indexes FollowSymLinks MultiViews
               AllowOverride None
               Order allow,deny
               allow from all
       </Directory>
 </VirtualHost>
+//
+//cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/intranet.wt18.ephec-ti.be.conf
+vi /etc/apache2/sites-available/intranet.wt18.ephec-ti.be.conf
+<VirtualHost *:80>
+      ServerAdmin HE201415@students.ephec.be
+      ServerName intranet.wt18.ephec-ti.be
+      DocumentRoot /var/www/intranet
+      <Directory /var/www/intranet/>
+              Options Indexes FollowSymLinks MultiViews
+	      AllowOverride All
+	      Order deny,allow
+	      Deny from all
+	      Allow from 79.137.39.23
+      </Directory>
+</VirtualHost>
 
 a2ensite wt18.ephec-ti.be.conf  //sites-avail -> sites-enab
 service apache2 restart
 
-// test ne marche pas url : www.wt18.ephec-ti.be
+// test curl www.wt18.ephec-ti.be
+// C'est BON!
 
 apt-get install bind9
 
@@ -68,3 +89,4 @@ www.wt18.ephec-ti.be.	IN	A	79.137.39.23
 //mail.wt18.ephec-ti.be. IN MX 5 mail.wt18.ephec-ti.be.
 //mail.wt18.ephec-ti.be. In A 79.137.39.23
         
+service bind9 restart
