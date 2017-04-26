@@ -1,7 +1,7 @@
 //Links apache
 //https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-14-04-lts
-//Links DNS
 //https://www.digitalocean.com/community/tutorials/how-to-configure-the-apache-web-server-on-an-ubuntu-or-debian-vps
+//Links DNS
 //https://doc.ubuntu-fr.org/bind9
 //http://wiki.goldzoneweb.info/creation_d_une_zone
 //http://valaurea.free.fr/documents/sig11_bind9_3.html
@@ -57,7 +57,7 @@ vi /etc/apache2/sites-available/intranet.wt18.ephec-ti.be.conf
 a2ensite wt18.ephec-ti.be.conf  //sites-avail -> sites-enab
 service apache2 restart
 
-// test curl www.wt18.ephec-ti.be
+// test curl www.wt18.ephec-ti.be avec vi /etc/hosts 79.137.39.23 www.wt18.ephec-ti.be
 // C'est BON!
 
 apt-get install bind9
@@ -69,7 +69,7 @@ zone "wt18.ephec-ti.be" IN {
                 file "/etc/bind/db.wt18.ephec-ti.be"; //chemin
         };
 
-//
+//https://github.com/HE201415/ProjetAdminSR/blob/master/apache/bind/named.conf.options
 vi /etc/bind/named.conf.options
 options {
         directory "/var/cache/bind";
