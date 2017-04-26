@@ -69,9 +69,39 @@ zone "wt18.ephec-ti.be" IN {
                 file "/etc/bind/db.wt18.ephec-ti.be"; //chemin
         };
 
+//
+vi /etc/bind/named.conf.options
+options {
+        directory "/var/cache/bind";
+
+        // If there is a firewall between you and nameservers you want
+        // to talk to, you may need to fix the firewall to allow multiple
+        // ports to talk.  See http://www.kb.cert.org/vuls/id/800113
+
+        // If your ISP provided one or more IP addresses for stable
+        // nameservers, you probably want to use them as forwarders.
+        // Uncomment the following block, and insert the addresses replacing
+        // the all-0's placeholder.
+
+        // forwarders {
+        //      0.0.0.0;
+        // };
+
+        //========================================================================
+        // If BIND logs error messages about the root key being expired,
+        // you will need to update your keys.  See https://www.isc.org/bind-keys
+        //========================================================================
+        dnssec-validation auto;
+
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
+};
+
+
 //https://github.com/HE201415/ProjetAdminSR/blob/master/apache/bind/db.wt18.ephec-ti.be
 //@ = wt18.ephec-ti.be
 vi /etc/bind/db.wt18.ephec-ti.be
+$ORIGIN wt18.ephec-ti.be.
 $TTL 86400  ; Time-To-Live (in seconds 86400 = 24hours).
 @	IN	SOA	ns1.wt18.ephec-ti.be. HE201415@students.ephec.be. (
 									2017042501     ; Serial
@@ -88,5 +118,6 @@ www.wt18.ephec-ti.be.	IN	A	79.137.39.23
 //intranet.wt18.ephec-ti.be.	IN	A	79.137.39.23
 //mail.wt18.ephec-ti.be. IN MX 5 mail.wt18.ephec-ti.be.
 //mail.wt18.ephec-ti.be. In A 79.137.39.23
-        
+
+
 service bind9 restart
