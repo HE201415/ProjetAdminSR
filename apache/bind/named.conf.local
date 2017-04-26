@@ -1,0 +1,4 @@
+zone "wt18.ephec-ti.be" IN {
+                type master; //nom de domaine principal
+                file "/etc/bind/db.wt18.ephec-ti.be"; //chemin
+        };
