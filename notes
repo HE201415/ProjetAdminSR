@@ -8,7 +8,7 @@ mkdir /var/www/wt18.ephec-ti.be
 chmod -R 755 /var/www
 
 //https://github.com/HE201415/ProjetAdminSR/blob/master/html/www.wt18.ephec-ti.be
-vi /var/www/wt18.ephec-ti.be/index.html
+vi /var/www/index.html
 <html>
   <head>
     <title>Test!</title>
@@ -23,10 +23,10 @@ vi /var/www/wt18.ephec-ti.be/index.html
 vi /etc/apache2/sites-available/wt18.ephec-ti.be.conf
 <VirtualHost *:80>
       ServerAdmin admin@wt18.ephec-ti.be
-      ServerName wt18.ephec-ti.be
-      ServerAlias www.wt18.ephec-ti.be
-      DocumentRoot /var/www/wt18.ephec-ti.be
-      <Directory /var/www/wt18.ephec-ti.be/>
+      ServerName www.wt18.ephec-ti.be
+      //ServerAlias www.wt18.ephec-ti.be
+      DocumentRoot /var/www
+      <Directory /var/www/>
               Options Indexes FollowSymLinks MultiViews
               AllowOverride None
               Order allow,deny
@@ -34,17 +34,37 @@ vi /etc/apache2/sites-available/wt18.ephec-ti.be.conf
       </Directory>
 </VirtualHost>
 
-a2ensite wt18.ephec-ti.be.conf
+a2ensite wt18.ephec-ti.be.conf  //sites-avail -> sites-enab
 service apache2 restart
 
-// test ne marche pas
+// test ne marche pas url : www.wt18.ephec-ti.be
 
 apt-get install bind9
 
-
+//https://github.com/HE201415/ProjetAdminSR/blob/master/apache/bind/named.conf.local
 vi /etc/bind/named.conf.local
 zone "wt18.ephec-ti.be" IN {
                 type master; //nom de domaine principal
-                file "wt18.ephec-ti.be.zone"; //chemin
-                allow-update { none; };
+                file "/etc/bind/db.wt18.ephec-ti.be"; //chemin
         };
+
+//https://github.com/HE201415/ProjetAdminSR/blob/master/apache/bind/db.wt18.ephec-ti.be
+//@ = wt18.ephec-ti.be
+vi /etc/bind/db.wt18.ephec-ti.be
+$TTL 86400  ; Time-To-Live (in seconds 86400 = 24hours).
+@	IN	SOA	ns1.wt18.ephec-ti.be. HE201415@students.ephec.be. (
+									2017042501     ; Serial
+									604800         ; Refresh
+									604800         ; Retry 
+									604800         ; Expire (master dead)
+									86400 )        ; Negative Cache TTL (TTL minimum)
+
+wt18.ephec-ti.be.	IN	NS	ns1.wt18.ephec-ti.be.
+
+ns1.wt18.ephec-ti.be.	IN	A	79.137.39.23
+www.wt18.ephec-ti.be.	IN	A	79.137.39.23
+//b2b.wt18.ephec-ti.be.	IN	A	79.137.39.23
+//intranet.wt18.ephec-ti.be.	IN	A	79.137.39.23
+//mail.wt18.ephec-ti.be. IN MX 5 mail.wt18.ephec-ti.be.
+//mail.wt18.ephec-ti.be. In A 79.137.39.23
+        
