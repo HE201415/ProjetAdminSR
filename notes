@@ -26,6 +26,26 @@ vi /var/www/wt18/index.html
    <h1>Test working</h1>
   </body>
 </html>
+//https://github.com/HE201415/ProjetAdminSR/blob/master/html/www.wt18.ephec-ti.be
+vi /var/www/intranet/index.html
+<html>
+  <head>
+    <title>Test intranet!</title>
+  </head>
+  <body>
+   <h1>Test intranet working</h1>
+  </body>
+</html>
+//https://github.com/HE201415/ProjetAdminSR/blob/master/html/www.wt18.ephec-ti.be
+vi /var/www/b2b/index.html
+<html>
+  <head>
+    <title>Test b2b!</title>
+  </head>
+  <body>
+   <h1>Test b2b working</h1>
+  </body>
+</html>
 
 //https://github.com/HE201415/ProjetAdminSR/blob/master/apache/sites-available/www.wt18.ephec-ti.be
 //cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/wt18.ephec-ti.be.conf
