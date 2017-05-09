@@ -5,6 +5,9 @@
 //https://doc.ubuntu-fr.org/bind9
 //http://wiki.goldzoneweb.info/creation_d_une_zone
 //http://valaurea.free.fr/documents/sig11_bind9_3.html
+//Links Mail
+//Links VoIP
+//http://ubuntuserverhelp.com/asterisk-sip-conf/
 
 apt-get install apache2
 
