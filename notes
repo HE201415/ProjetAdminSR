@@ -146,10 +146,13 @@ VoIP
 
 apt-get install asterisk
 
+//
 sip.conf
 
+//
 extensions.conf
 
+//
 voicemail.conf
 [general]
 format=wav49|gsm|wav
@@ -169,10 +172,10 @@ sendvoicemail=yes
 3001 => , test3ex1
 3002 => , test3ex2
 
-[commerce]
+[4]
 4001 => , test4ex1
 4002 => , test4ex2
 
-[direction]
+[5]
 5001 => , test5ex1
 
