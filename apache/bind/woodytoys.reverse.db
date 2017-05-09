@@ -1,0 +1,13 @@
+n-addr arpa IN SOA sigui.ci. root.sigui.ci. {
+20080605 ; Serial
+604800 ; Refresh
+86400 ; Retry
+2419200 ; Expire
+604800 ) ; Cache négatif du TTL
+
+; Serveur de noms
+@ IN NS sigui.ci
+; Les machines et les serveurs
+10 IN PTR mail.sigui.ci.
+10 IN PTR www.sigui.ci.
+}
