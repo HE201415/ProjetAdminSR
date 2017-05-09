@@ -53,6 +53,20 @@ vi /etc/apache2/sites-available/intranet.wt18.ephec-ti.be.conf
 	      Allow from 79.137.39.23
       </Directory>
 </VirtualHost>
+//
+//cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/wt18.ephec-ti.be.conf
+vi /etc/apache2/sites-available/wt18.ephec-ti.be.conf
+<VirtualHost *:80>
+      ServerAdmin HE201415@students.ephec.be
+      ServerName b2b.wt18.ephec-ti.be
+      DocumentRoot /var/www/b2b
+      <Directory /var/www/b2b/>
+              Options Indexes FollowSymLinks MultiViews
+              AllowOverride None
+              Order allow,deny
+              allow from all
+      </Directory>
+</VirtualHost>
 
 a2ensite wt18.ephec-ti.be.conf  //sites-avail -> sites-enab
 service apache2 restart
@@ -114,10 +128,51 @@ wt18.ephec-ti.be.	IN	NS	ns1.wt18.ephec-ti.be.
 
 ns1.wt18.ephec-ti.be.	IN	A	79.137.39.23
 www.wt18.ephec-ti.be.	IN	A	79.137.39.23
-//b2b.wt18.ephec-ti.be.	IN	A	79.137.39.23
-//intranet.wt18.ephec-ti.be.	IN	A	79.137.39.23
-//mail.wt18.ephec-ti.be. IN MX 5 mail.wt18.ephec-ti.be.
-//mail.wt18.ephec-ti.be. In A 79.137.39.23
+b2b.wt18.ephec-ti.be.	IN	A	79.137.39.23
+intranet.wt18.ephec-ti.be.	IN	A	79.137.39.23
+mail.wt18.ephec-ti.be. IN MX 5 mail.wt18.ephec-ti.be.
+mail.wt18.ephec-ti.be. In A 79.137.39.23
 
 
 service bind9 restart
+
+
+// //
+Mail
+// //
+
+// //
+VoIP
+
+apt-get install asterisk
+
+sip.conf
+
+extensions.conf
+
+voicemail.conf
+[general]
+format=wav49|gsm|wav
+maxsilence=10
+silencethreshold=128
+maxlogins=3
+sendvoicemail=yes
+
+[1]
+1001 => , test1
+
+[2]
+2001 => , test2ex1
+2002 => , test2ex2
+
+[3]
+3001 => , test3ex1
+3002 => , test3ex2
+
+[commerce]
+4001 => , test4ex1
+4002 => , test4ex2
+
+[direction]
+5001 => , test5ex1
+
