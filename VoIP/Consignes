@@ -1,0 +1,9 @@
+— Les ouvriers : Ils disposent d’un poste de téléphonie IP dans leur atelier pour joindre les autres départements internes.
+
+— La secrétaire : Elle dispose d’un PC sur lequel se trouve un soft-phone, lui permettant de contacter n’importe qui.
+
+— Le service comptable : Réparti dans deux bureaux, il dispose d’un numéro unique permettant de joindre le premier comptable dis-ponible, ainsi que d’un numéro spéciﬁque par bureau. Les comp-tables peuvent joindre l’extérieur et tout le monde en interne à l’exception du directeur.
+
+— Les commerciaux : Réunis dans un même bureau, ils peuvent joindre l’extérieur et tout le monde en interne à l’exception du directeur. Ils disposent également de smartphones avec lesquels ils peuvent téléphoner en déplacement.
+
+— La direction : Un numéro qui peut joindre tous les autres postes internes ainsi que l’extérieur. Ce numéro ne peut pas être joint directement, les appels devant transiter préalablement par la se-crétaire.
