@@ -98,6 +98,8 @@ vi /etc/apache2/sites-available/b2b.wt18.ephec-ti.be.conf
 </VirtualHost>
 
 a2ensite wt18.ephec-ti.be.conf  //sites-avail -> sites-enab
+a2ensite intranet.wt18.ephec-ti.be
+a2ensite b2b.wt18.ephec-ti.be
 service apache2 restart
 
 // test curl www.wt18.ephec-ti.be avec vi /etc/hosts 79.137.39.23 www.wt18.ephec-ti.be
