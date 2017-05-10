@@ -171,9 +171,21 @@ apt-get install asterisk
 
 //
 sip.conf
+[general]
+language=en
+port=5060
+bindaddr=0.0.0.0
+srvlookup=yes
 
 //
 extensions.conf
+[general]
+static=yes
+writeprotect=no
+clearglobalvars=no
+
+[]
+ =>
 
 //
 voicemail.conf
