@@ -84,7 +84,7 @@ vi /etc/apache2/sites-available/intranet.wt18.ephec-ti.be.conf
 </VirtualHost>
 //https://github.com/HE201415/ProjetAdminSR/blob/master/apache/sites-available/b2b.wt18.ephec-ti.be
 //cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/wt18.ephec-ti.be.conf
-vi /etc/apache2/sites-available/wt18.ephec-ti.be.conf
+vi /etc/apache2/sites-available/b2b.wt18.ephec-ti.be.conf
 <VirtualHost *:80>
       ServerAdmin HE201415@students.ephec.be
       ServerName b2b.wt18.ephec-ti.be
