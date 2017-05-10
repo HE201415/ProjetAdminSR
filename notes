@@ -214,3 +214,5 @@ sendvoicemail=yes
 [5]
 5001 => , test5ex1
 
+
+asterisk -rx reload
