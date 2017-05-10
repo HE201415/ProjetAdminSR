@@ -184,8 +184,10 @@ static=yes
 writeprotect=no
 clearglobalvars=no
 
-[]
- =>
+[x]
+# x peut appeler 1XXX. Après y secondes, voicemail
+exten => _1XXX,1,Dial(SIP/${EXTEN},y)
+exten => _1XXX,2,VoiceMail(${EXTEN}@x)
 
 //
 voicemail.conf
