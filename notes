@@ -170,7 +170,8 @@ VoIP
 apt-get install asterisk
 
 //
-sip.conf
+sudo cp /etc/asterisk/sip.conf /etc/asterisk/sip.conf.orig
+vi /etc/asterisk/sip.conf
 [general]
 language=en
 port=5060
