@@ -10,6 +10,11 @@
 //http://asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/index.html
 //http://ubuntuserverhelp.com/asterisk-sip-conf/
 
+
+// //
+Apache 
+// //
+
 apt-get install apache2
 
 mkdir /var/www/wt18
@@ -98,6 +103,10 @@ service apache2 restart
 // test curl www.wt18.ephec-ti.be avec vi /etc/hosts 79.137.39.23 www.wt18.ephec-ti.be
 // C'est BON!
 
+// //
+ DNS 
+// //
+
 apt-get install bind9
 
 //https://github.com/HE201415/ProjetAdminSR/blob/master/apache/bind/named.conf.local
@@ -167,6 +176,7 @@ Mail
 
 // //
 VoIP
+// //
 
 apt-get install asterisk
 
