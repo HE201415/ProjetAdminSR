@@ -7,6 +7,7 @@
 //http://valaurea.free.fr/documents/sig11_bind9_3.html
 //Links Mail
 //Links VoIP
+//http://asteriskdocs.org/en/3rd_Edition/asterisk-book-html-chunk/index.html
 //http://ubuntuserverhelp.com/asterisk-sip-conf/
 
 apt-get install apache2
