@@ -237,6 +237,8 @@ format=wav49|gsm|wav
 maxsilence=10
 silencethreshold=128
 maxlogins=3
+maxmsg=100
+maxsecs=900
 sendvoicemail=yes
 
 [secretaire]
