@@ -1,4 +1,15 @@
 Mission 1
 
-Dans le cadre de cette mission, nous avons eu comme objectif de configurer une infrastructure DNS 
+Ce qui est demandé:
+Dans le cadre de cette mission, nous avons eu comme objectif de configurer 3 noms de domaine. www.wt18.ephec-ti.be est un site statique.
+configurer serveur web + dns
+
+Ce qu'on a choisi:
+choix entre Apache et Nginx, choisi Apache
+dns choisi bind car celui qu'on connait
+
+Qu'est ce qui marche:
+site statique est fait, b2b et intranet ne le sont pas (site statique?)
+pour tester fonctionnement site statique: www.wt18.ephec-ti.be
+reste à faire...
 
