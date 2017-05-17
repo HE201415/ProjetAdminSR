@@ -1,15 +1,19 @@
 Projet Administration Réseau 2: Rapport Mission 1
 
+
 Ce qui est demandé:
 Dans le cadre de cette mission, nous avons eu comme objectif de remplacer l’infrastructure réseau de l’entreprise WoodyToys. Il attend de nous 3 sites : un site statique, www.wt18.ephec-ti.be qui présente l'entreprise et ses produits, un site dynamique, b2b.wt18.ephec-ti.be qui permet de passer des commandes et dernièrement un site uniquement accessible en interne, intranet.wt18.ephec-ti.be.
 Pour cela, il nous faut configurer un serveur web et un DNS.
 
 Ce qu'on a choisi:
 Nous avons choisi d’utiliser Apache plutôt que Nginx pour notre serveur Web. Celui-ci, nous a semblé marginalement plus simple à implémenter. Pour notre DNS, nous avons choisi bind car c’est l’option que l’on connait le mieux.
+Pour rendre la connexion à l’intranet interne, nous avons empêché dans sa configuration la connexion à partir de tous les adresses IP sauf 79.137.39.23. 
 
 Ce qui a été accompli:
-site statique est fait, b2b et intranet ne le sont pas (site statique?)
-pour tester fonctionnement site statique: www.wt18.ephec-ti.be
-reste à faire...
+Le site statique est fait et fonctionnel. Suffit de taper son url, www.wt18.ephec-ti.be, pour y accéder. Nous n’avons implémenté qu’une mise en page simple et sans image.
+Pour faire le site dynamique b2b, il nous faudrait probablement implémenter une base de donnée des produits, ce qui n’est pas encore fait.
+L’intranet n’est pour le moment qu’un site statique accessible que depuis l’adresse IP 79.137.39.23.
+
+
 
 
