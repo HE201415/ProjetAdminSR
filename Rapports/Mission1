@@ -12,8 +12,4 @@ Pour rendre la connexion à l’intranet interne, nous avons empêché dans sa c
 Ce qui a été accompli:
 Le site statique est fait et fonctionnel. Suffit de taper son url, www.wt18.ephec-ti.be, pour y accéder. Nous n’avons implémenté qu’une mise en page simple et sans image.
 Pour faire le site dynamique b2b, il nous faudrait probablement implémenter une base de donnée des produits, ce qui n’est pas encore fait.
-L’intranet n’est pour le moment qu’un site statique accessible que depuis l’adresse IP 79.137.39.23.
-
-
-
-
+L’intranet n’est pour le moment qu’un site statique accessible que depuis l’adresse IP 79.137.39.23. On peut le tester avec « curl intranet.wt18.ephec-ti.be ».
