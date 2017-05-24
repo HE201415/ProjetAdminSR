@@ -274,4 +274,97 @@ sendvoicemail=yes
 5001 => 1234, directeur
 
 
+
+
+
+http://denisrosenkranz.com/tuto-installer-et-configurer-asterisk-sous-debian-6-et-ubuntu/
+
+//prepa
+
+mkdir /usr/src/asterisk
+cd /usr/src/asterisk
+
+//installation
+
+wget http://downloads.asterisk.org/pub/telephony/asterisk/releases/asterisk-10.7.0.tar.gz
+tar xvzf asterisk-10.7.0.tar.gz
+cd asterik-asterisk-10.7.0
+./configure
+make menuselect
+
+//sip.conf
+[general]
+language=fr
+port=5060
+bindaddr=0.0.0.0
+srvlookup=yes
+
+//users.conf
+[general]
+hasvoicemail = yes
+hassip = yes
+hasiax = yes
+callwaiting = yes
+threewaycalling = yes
+callwaitingcallerid = yes
+transfer = yes
+canpark = yes
+cancallforward = yes
+callreturn = yes
+callgroup = 1
+pickupgroup = 1
+nat = yes
+ 
+[6001]
+type=friend
+host=dynamic
+dtmfmode=rfc2833
+disallow=all
+allow=ulaw
+fullname = John DOE
+username = jdoe
+secret=secret
+context = work
+ 
+[6002]
+type=friend
+host=dynamic
+dtmfmode=rfc2833
+disallow=all
+allow=ulaw
+fullname = Albert DUPONT
+username = adupont
+secret=secret
+context = work
+
+//extensions.conf
+[general]
+static=yes
+writeprotect=no
+clearglobalvars=no
+[globals]
+CONSOLE=Console/dsp                             ; Console interface for demo
+IAXINFO=guest                                   ; IAXtel username/password
+TRUNK=DAHDI/G2                                  ; Trunk interface
+TRUNKMSD=1                                      ; MSD digits to strip (usually 1 or 0)
+ 
+[work]
+exten => _6XXX,1,Dial(SIP/${EXTEN},20)
+exten => _6XXX,2,Hangup()
+
+
+CSipSimple (android) -> X-LITE (windows)
+
+X-LITE:
+Account Name : SIP
+User ID: 6001
+Domain: 192. . .
+Password: secret
+Display name: John DOE
+Authorization name: 6001
+
+
+
+
+
 asterisk -rx reload
