@@ -14,7 +14,7 @@
 
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // //
-Apache 
+Apache et web
 // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 apt-get install apache2
@@ -106,6 +106,22 @@ service apache2 restart
 
 // test curl www.wt18.ephec-ti.be avec vi /etc/hosts 79.137.39.23 www.wt18.ephec-ti.be
 // C'est BON!
+
+
+// // // // // // // // // // // // // // // // // // // // // // // // // // // //
+ SQL 
+// // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+
+sudo docker run --name b2b -e MYSQL_ROOT_PASSWORD=7410 -d -p 3306:3306 mysql:latest
+sudo docker exec -it <container_id /bin/bash
+mysql -u root -p
+create database prods
+use prods
+create table produit (id varchar(2), nom varchar(100), prix int, stock int);
+insert into produit (id, nom, prix, stock) values("01", "OakToy", 14, 30),("02", "BirchToy", 9, 25),("03", "PineToy", 19, 15);
+CREATE USER 'juhani'@'localhost' IDENTIFIED BY 'ephec';
+GRANT ALL PRIVILEGES ON *.* TO 'juhani'@'localhost'
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // //
  DNS 
