@@ -81,7 +81,7 @@ vi /etc/apache2/sites-available/intranet.eerola.ephec-ti.be.conf
 	      AllowOverride All
 	      Order deny,allow
 	      Deny from all
-	      Allow from 79.137.39.23
+	      Allow from 149.202.63.164
       </Directory>
 </VirtualHost>
 //https://github.com/HE201415/ProjetAdminSR/blob/master/apache/sites-available/b2b.eerola.ephec-ti.be
