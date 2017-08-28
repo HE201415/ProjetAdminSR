@@ -19,13 +19,13 @@ Apache et web
 
 apt-get install apache2
 
-mkdir /var/www/wt18
+mkdir /var/www/eerola
 mkdir /var/www/intranet
 mkdir /var/www/b2b
 chmod -R 755 /var/www
 
-//https://github.com/HE201415/ProjetAdminSR/blob/master/html/www.wt18.ephec-ti.be
-vi /var/www/wt18/index.html
+//https://github.com/HE201415/ProjetAdminSR/blob/master/html/www.eerola.ephec-ti.be
+vi /var/www/eerola/index.html
 <html>
   <head>
     <title>Test!</title>
@@ -34,7 +34,7 @@ vi /var/www/wt18/index.html
    <h1>Test working</h1>
   </body>
 </html>
-//https://github.com/HE201415/ProjetAdminSR/blob/master/html/www.wt18.ephec-ti.be
+//https://github.com/HE201415/ProjetAdminSR/blob/master/html/www.eerola.ephec-ti.be
 vi /var/www/intranet/index.html
 <html>
   <head>
@@ -44,7 +44,7 @@ vi /var/www/intranet/index.html
    <h1>Test intranet working</h1>
   </body>
 </html>
-//https://github.com/HE201415/ProjetAdminSR/blob/master/html/www.wt18.ephec-ti.be
+//https://github.com/HE201415/ProjetAdminSR/blob/master/html/www.eerola.ephec-ti.be
 vi /var/www/b2b/index.html
 <html>
   <head>
@@ -55,26 +55,26 @@ vi /var/www/b2b/index.html
   </body>
 </html>
 
-//https://github.com/HE201415/ProjetAdminSR/blob/master/apache/sites-available/www.wt18.ephec-ti.be
-//cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/wt18.ephec-ti.be.conf
-vi /etc/apache2/sites-available/wt18.ephec-ti.be.conf
+//https://github.com/HE201415/ProjetAdminSR/blob/master/apache/sites-available/www.eerola.ephec-ti.be
+//cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/eerola.ephec-ti.be.conf
+vi /etc/apache2/sites-available/eerola.ephec-ti.be.conf
 <VirtualHost *:80>
       ServerAdmin HE201415@students.ephec.be
-      ServerName www.wt18.ephec-ti.be
-      DocumentRoot /var/www/wt18
-      <Directory /var/www/wt18/>
+      ServerName www.eerola.ephec-ti.be
+      DocumentRoot /var/www/eerola
+      <Directory /var/www/eerola/>
               Options Indexes FollowSymLinks MultiViews
               AllowOverride None
               Order allow,deny
               allow from all
       </Directory>
 </VirtualHost>
-//https://github.com/HE201415/ProjetAdminSR/blob/master/apache/sites-available/intranet.wt18.ephec-ti.be
-//cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/intranet.wt18.ephec-ti.be.conf
-vi /etc/apache2/sites-available/intranet.wt18.ephec-ti.be.conf
+//https://github.com/HE201415/ProjetAdminSR/blob/master/apache/sites-available/intranet.eerola.ephec-ti.be
+//cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/intranet.eerola.ephec-ti.be.conf
+vi /etc/apache2/sites-available/intranet.eerola.ephec-ti.be.conf
 <VirtualHost *:80>
       ServerAdmin HE201415@students.ephec.be
-      ServerName intranet.wt18.ephec-ti.be
+      ServerName intranet.eerola.ephec-ti.be
       DocumentRoot /var/www/intranet
       <Directory /var/www/intranet/>
               Options Indexes FollowSymLinks MultiViews
@@ -84,12 +84,12 @@ vi /etc/apache2/sites-available/intranet.wt18.ephec-ti.be.conf
 	      Allow from 79.137.39.23
       </Directory>
 </VirtualHost>
-//https://github.com/HE201415/ProjetAdminSR/blob/master/apache/sites-available/b2b.wt18.ephec-ti.be
-//cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/wt18.ephec-ti.be.conf
-vi /etc/apache2/sites-available/b2b.wt18.ephec-ti.be.conf
+//https://github.com/HE201415/ProjetAdminSR/blob/master/apache/sites-available/b2b.eerola.ephec-ti.be
+//cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/eerola.ephec-ti.be.conf
+vi /etc/apache2/sites-available/b2b.eerola.ephec-ti.be.conf
 <VirtualHost *:80>
       ServerAdmin HE201415@students.ephec.be
-      ServerName b2b.wt18.ephec-ti.be
+      ServerName b2b.eerola.ephec-ti.be
       DocumentRoot /var/www/b2b
       <Directory /var/www/b2b/>
               Options Indexes FollowSymLinks MultiViews
@@ -99,12 +99,12 @@ vi /etc/apache2/sites-available/b2b.wt18.ephec-ti.be.conf
       </Directory>
 </VirtualHost>
 
-a2ensite wt18.ephec-ti.be.conf  //sites-avail -> sites-enab
-a2ensite intranet.wt18.ephec-ti.be
-a2ensite b2b.wt18.ephec-ti.be
+a2ensite eerola.ephec-ti.be.conf  //sites-avail -> sites-enab
+a2ensite intranet.eerola.ephec-ti.be
+a2ensite b2b.eerola.ephec-ti.be
 service apache2 restart
 
-// test curl www.wt18.ephec-ti.be avec vi /etc/hosts 79.137.39.23 www.wt18.ephec-ti.be
+// test curl www.eerola.ephec-ti.be avec vi /etc/hosts 79.137.39.23 www.eerola.ephec-ti.be
 // C'est BON!
 
 
@@ -131,9 +131,9 @@ apt-get install bind9
 
 //https://github.com/HE201415/ProjetAdminSR/blob/master/apache/bind/named.conf.local
 vi /etc/bind/named.conf.local
-zone "wt18.ephec-ti.be" IN {
+zone "eerola.ephec-ti.be" IN {
                 type master; //nom de domaine principal
-                file "/etc/bind/db.wt18.ephec-ti.be"; //chemin
+                file "/etc/bind/db.eerola.ephec-ti.be"; //chemin
         };
 
 //https://github.com/HE201415/ProjetAdminSR/blob/master/apache/bind/named.conf.options
@@ -165,26 +165,26 @@ options {
 };
 
 
-//https://github.com/HE201415/ProjetAdminSR/blob/master/apache/bind/db.wt18.ephec-ti.be
-//@ = wt18.ephec-ti.be
-vi /etc/bind/db.wt18.ephec-ti.be
-$ORIGIN wt18.ephec-ti.be.
+//https://github.com/HE201415/ProjetAdminSR/blob/master/apache/bind/db.eerola.ephec-ti.be
+//@ = eerola.ephec-ti.be
+vi /etc/bind/db.eerola.ephec-ti.be
+$ORIGIN eerola.ephec-ti.be.
 $TTL 86400  ; Time-To-Live (in seconds 86400 = 24hours).
-@	IN	SOA	ns1.wt18.ephec-ti.be. HE201415@students.ephec.be. (
+@	IN	SOA	ns1.eerola.ephec-ti.be. HE201415@students.ephec.be. (
 									2017042501     ; Serial
 									604800         ; Refresh
 									604800         ; Retry 
 									604800         ; Expire (master dead)
 									86400 )        ; Negative Cache TTL (TTL minimum)
 
-wt18.ephec-ti.be.	IN	NS	ns1.wt18.ephec-ti.be.
+eerola.ephec-ti.be.	IN	NS	ns1.eerola.ephec-ti.be.
 
-ns1.wt18.ephec-ti.be.	IN	A	79.137.39.23
-www.wt18.ephec-ti.be.	IN	A	79.137.39.23
-b2b.wt18.ephec-ti.be.	IN	A	79.137.39.23
-intranet.wt18.ephec-ti.be.	IN	A	79.137.39.23
-mail.wt18.ephec-ti.be. IN MX 5 mail.wt18.ephec-ti.be.
-mail.wt18.ephec-ti.be. In A 79.137.39.23
+ns1.eerola.ephec-ti.be.	IN	A	79.137.39.23
+www.eerola.ephec-ti.be.	IN	A	79.137.39.23
+b2b.eerola.ephec-ti.be.	IN	A	79.137.39.23
+intranet.eerola.ephec-ti.be.	IN	A	79.137.39.23
+mail.eerola.ephec-ti.be. IN MX 5 mail.eerola.ephec-ti.be.
+mail.eerola.ephec-ti.be. In A 79.137.39.23
 
 
 service bind9 restart
@@ -205,8 +205,8 @@ FROM catatnight/postfix:latest
 #RUN groupadd vmail -g 5000
 #RUN useradd vmail -r -c 'virtual mail user' -m -d /home/vmail -g vmail -u 5000
 #--------------------------
-#RUN echo mail.wt18.ephec-ti.be > /etc/mailname
-#RUN echo vmail: vmail@wt18.ephec-ti.be >> /etc/aliases
+#RUN echo mail.eerola.ephec-ti.be > /etc/mailname
+#RUN echo vmail: vmail@eerola.ephec-ti.be >> /etc/aliases
 #COPY postfix_conf/ /etc/postfix
 #RUN apt-get update && apt-get install dovecot-core dovecot-imapd -y
 #COPY /dovecot_conf /etc/dovecot
