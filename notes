@@ -172,21 +172,34 @@ $ORIGIN eerola.ephec-ti.be.
 $TTL 86400  ; Time-To-Live (in seconds 86400 = 24hours).
 @	IN	SOA	ns1.eerola.ephec-ti.be. HE201415@students.ephec.be. (
 									2017042501     ; Serial
-									604800         ; Refresh
-									604800         ; Retry 
+									201600         ; Refresh
+									10800          ; Retry 
 									604800         ; Expire (master dead)
-									86400 )        ; Negative Cache TTL (TTL minimum)
+									43200 )        ; Negative Cache TTL (TTL minimum)
 
 eerola.ephec-ti.be.	IN	NS	ns1.eerola.ephec-ti.be.
 
-ns1.eerola.ephec-ti.be.	IN	A	79.137.39.23
-www.eerola.ephec-ti.be.	IN	A	79.137.39.23
-b2b.eerola.ephec-ti.be.	IN	A	79.137.39.23
-intranet.eerola.ephec-ti.be.	IN	A	79.137.39.23
-mail.eerola.ephec-ti.be. IN MX 5 mail.eerola.ephec-ti.be.
-mail.eerola.ephec-ti.be. In A 79.137.39.23
+ns1.eerola.ephec-ti.be.	IN	A	149.202.63.164
+www.eerola.ephec-ti.be.	IN	A	149.202.63.164
+b2b.eerola.ephec-ti.be.	IN	A	149.202.63.164
+intranet.eerola.ephec-ti.be.	IN	A	149.202.63.164
 
 
+mail.eerola.ephec-ti.be. IN	A	149.202.63.164
+smtp		 	 IN	CNAME	mail
+pop3			 IN	CNAME	mail
+imap			 IN	CNAME	mail
+
+sip 			 IN	A	149.202.63.164
+_sip._udp                IN     SRV	0 0 5060 voip
+_sip._tcp 		        SRV	0 0 5060 sip
+
+cloud 			 IN	A	149.202.63.164
+
+
+
+
+//mail.eerola.ephec-ti.be. IN MX 5 mail.eerola.ephec-ti.be.
 service bind9 restart
 
 
